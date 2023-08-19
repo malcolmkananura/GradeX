@@ -15,7 +15,9 @@ class ApplicationConfig:
     else:
         SQLALCHEMY_DATABASE_URI = r"sqlite:///./db.sqlite"  # Use SQLite3 for development
     
-    SESSION_TYPE = "redis"
+    # SESSION_TYPE = "redis"
     SESSION_PERMANENT = False
     SESSION_USE_SIGNER = True
-    SESSION_REDIS = redis.from_url(os.environ.get("REDIS_URL"))  # Use Heroku-provided Redis URL
+    # SESSION_REDIS = redis.from_url(os.environ.get("REDIS_URL"))  # Use Heroku-provided Redis URL
+    SESSION_TYPE = "sqlalchemy"  # Use SQLAlchemy for sessions
+    SESSION_SQLALCHEMY_TABLE = "session"  # Use the name of your session table

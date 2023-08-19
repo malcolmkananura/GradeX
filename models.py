@@ -6,6 +6,12 @@ db = SQLAlchemy()
 def get_uuid():
     return uuid4().hex
 
+class Session(db.Model):
+    id = db.Column(db.String(50), primary_key=True)
+    data = db.Column(db.PickleType(), nullable=False)
+    expiry = db.Column(db.DateTime, nullable=False)
+
+
 class User(db.Model):
     __tablename__ = "users"
     id = db.Column(db.String, primary_key=True, default=get_uuid)
