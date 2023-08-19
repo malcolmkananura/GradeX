@@ -105,7 +105,7 @@ def register_user():
         return jsonify({"error": "An error occurred while processing your request"}), 500
 
 
-@app.route("/login", methods=["POST"])
+@app.route("/login_user", methods=["POST"])
 def login_user():
     try:
         email = request.json["email"]

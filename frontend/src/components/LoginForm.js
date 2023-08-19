@@ -23,7 +23,7 @@ const LoginForm = () => {
     };
 
     try {
-      const response = await httpClient.post('https://grade-x-018e7b77a65e.herokuapp.com/login', loginData);
+      const response = await httpClient.post('https://grade-x-018e7b77a65e.herokuapp.com/login_user', loginData);
 
       if (response.status === 200) {
         const user = response.data;
