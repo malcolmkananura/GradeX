@@ -467,7 +467,6 @@ def create_topic():
 
 @app.route("/create_course_unit", methods=["POST"])
 def create_course_unit():
-    if request.method == "POST":
         try:
             course_unit_name = request.json["courseUnit"]
             lecturer_id = request.json["lecturerId"]  # You should provide the lecturer ID from the frontend
@@ -487,8 +486,6 @@ def create_course_unit():
         except Exception as e:
             print(f"An error occurred: {e}")
             return jsonify({"error": "An error occurred"}), 500
-    else:
-        return jsonify({"error": "Invalid request method"}), 405
     
 
 @app.route("/get_course_units", methods=["GET"])
@@ -806,7 +803,7 @@ def get_all_topics_performance():
             }
             student_performance.append(performance_data)
         
-        return jsonify(student_performance)
+        return jsonify(student_performance), 200
     except Exception as e:
         print(e)
         return jsonify({'message': 'Error fetching topics performance data'}), 500
