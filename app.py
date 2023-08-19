@@ -99,8 +99,8 @@ def register_user():
         session["user_id"] = user.id
 
         return jsonify({"message": "Registration successful"}), 201
-    except KeyError:
-        return jsonify({"error": "Missing required fields"}), 400
+    # except KeyError:
+    #     return jsonify({"error": "Missing required fields"}), 400
     except Exception as e:
         print("Error:", str(e))
         return jsonify({"error": "An error occurred while processing your request"}), 500
@@ -129,8 +129,8 @@ def login_user():
             "name": user.name,
             "user_type": user.user_type
         })
-    except KeyError:
-        return jsonify({"error": "Bad Request"}), 400
+    # except KeyError:
+    #     return jsonify({"error": "Bad Request"}), 400
     except Exception as e:
         print(e)
         return jsonify({"error": "Internal Server Error"}), 500
