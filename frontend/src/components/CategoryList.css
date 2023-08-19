@@ -1,0 +1,58 @@
+/* CategoryList.css */
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+
+.category-list {
+    padding: 20px;
+
+  }
+  
+  .category-card {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.2s;
+    font-size: 20px;
+  }
+  
+  .category-card:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+  }
+  
+  .color-0 {
+    background-color: #ffd700; /* Gold */
+  }
+  
+  .color-1 {
+    background-color: #87cefa; /* Light Sky Blue */
+  }
+  
+  .color-2 {
+    background-color: #98fb98; /* Pale Green */
+  }
+  
+  .color-3 {
+    background-color: #ffcccb; /* Light Coral */
+  }
+  .cat-comp{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+  }
+
+  .cat-unit, .color-0, .color-1, .color-2, .color-3 {
+    height: 100px;
+    width: 200px;
+    margin: 10px;
+    list-style-type: none;
+  }
+  

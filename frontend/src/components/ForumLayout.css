@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+.forum-layout {
+    display: flex;
+    background-color: "#DAE0E6";
+  }
+  
+  .categories {
+    flex: 1; /* Take up remaining space */
+  }
+  
+  .threads {
+    flex: 1; /* Take up remaining space */
+    padding-left: 20px; /* Add some spacing between categories and threads */
+  }
+  

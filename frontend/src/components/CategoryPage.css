@@ -1,0 +1,101 @@
+/* CategoryPage.css */
+
+.category-page {
+    padding: 20px;
+    flex: 1;
+
+    width: 90%;
+  }
+
+  .forum-layout{
+    display: flex;
+    margin-left: 0px;
+   }
+  
+  .category-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+  
+  
+  .category-card-color{
+    font-size: "30px";
+  }
+  
+  .thread-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style-type: none;
+  }
+  
+  .thread-card {
+    /* Your existing thread card styles here */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Ensure entire card is clickable */
+    margin-bottom: 10px; /* Add some space between cards */
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+    background-color: #ffffff;
+    
+  }
+  
+  .thread-card a {
+    color: black; /* Set text color to black */
+    transition: color 0.3s ease; /* Add transition effect */
+  }
+  
+  /* Style the link's hover state */
+  .thread-card a:hover {
+    color: white; /* Set text color to white on hover */
+    text-decoration: none; /* Remove underline on hover */
+  }
+  
+  /* Style the link's active state (when clicked) */
+  .thread-card a:active {
+    color: white; /* Set text color to white when clicked */
+  }
+  
+  /* Style the link's visited state */
+  .thread-card a:visited {
+    color: black; /* Set text color to black */
+  }
+  
+  .thread-color-0 { background-color: #FFA726; }
+  .thread-color-1 { background-color: #66BB6A; }
+  .thread-color-2 { background-color: #EF5350; }
+  .thread-color-3 { background-color: #42A5F5; }
+  
+  .new-thread-form {
+    margin-top: 20px;
+  }
+  
+  .new-thread-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .new-thread-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .new-thread-button {
+    background-color: #0079D3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .threads {
+    flex: 1; /* Take up remaining space */
+    padding-left: 20px; /* Add some spacing between categories and threads */
+  }
+  
