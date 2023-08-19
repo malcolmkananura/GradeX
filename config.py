@@ -15,12 +15,12 @@ class ApplicationConfig:
     else:
         SQLALCHEMY_DATABASE_URI = r"sqlite:///./db.sqlite"  # Use SQLite3 for development
     
-    SESSION_TYPE = "redis"
-    SESSION_PERMANENT = False
-    SESSION_USE_SIGNER = True
+    SESSION_TYPE = "filesystem"
+    # SESSION_PERMANENT = False
+    # SESSION_USE_SIGNER = True
     
 
-    r = redis.Redis(
-    host='redis-11821.c15.us-east-1-4.ec2.cloud.redislabs.com',
-    port=11821,
-    password='YSieJe08e6UlQLmE8X8k9C0J9xgIDHWR')
+    # r = redis.Redis(
+    # host='redis-11821.c15.us-east-1-4.ec2.cloud.redislabs.com',
+    # port=11821,
+    # password='YSieJe08e6UlQLmE8X8k9C0J9xgIDHWR')
