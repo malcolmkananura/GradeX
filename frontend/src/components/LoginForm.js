@@ -23,7 +23,7 @@ const LoginForm = () => {
     };
 
     try {
-      const response = await httpClient.post('http://127.0.0.1:5000/login', loginData);
+      const response = await httpClient.post('https://grade-x-018e7b77a65e.herokuapp.com/login', loginData);
 
       if (response.status === 200) {
         const user = response.data;
