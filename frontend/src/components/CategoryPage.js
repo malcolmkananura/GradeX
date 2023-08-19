@@ -28,7 +28,7 @@ function CategoryPage() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const categoryResponse = await httpClient.get(`http://127.0.0.1:5000/get_category_and_threads/${categoryId}`);
+        const categoryResponse = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/get_category_and_threads/${categoryId}`);
 
         if (!categoryResponse.data) {
           throw new Error('Error fetching category data');
@@ -56,7 +56,7 @@ function CategoryPage() {
         categoryId: categoryId,
       };
 
-      const response = await httpClient.post('http://127.0.0.1:5000/add_thread', newThreadData);
+      const response = await httpClient.post('https://grade-x-018e7b77a65e.herokuapp.com/add_thread', newThreadData);
 
       if (response.data) {
         setThreads([...threads, response.data]);

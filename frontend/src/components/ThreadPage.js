@@ -28,7 +28,7 @@ function ThreadPage() {
   useEffect(() => {
     async function fetchThreadData() {
       try {
-        const response = await httpClient.get(`http://127.0.0.1:5000/thread/${threadId}`);
+        const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/thread/${threadId}`);
 
         if (response.data) {
           setThread(response.data.thread || {});
@@ -55,7 +55,7 @@ function ThreadPage() {
     };
 
     try {
-      const response = await httpClient.post(`http://127.0.0.1:5000/add_post/${threadId}`, requestData);
+      const response = await httpClient.post(`https://grade-x-018e7b77a65e.herokuapp.com/add_post/${threadId}`, requestData);
 
       const newPostData = response.data;
       setPosts((prevPosts) => [...prevPosts, newPostData]);

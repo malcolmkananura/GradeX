@@ -71,7 +71,7 @@ const LecSidebar = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await httpClient.get("http://127.0.0.1:5000/@me");
+        const response = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/@me");
         setUser(response.data);
       } catch (error) {
         console.log("Not authenticated");

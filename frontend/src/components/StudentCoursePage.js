@@ -25,9 +25,9 @@ const StudentCoursePage = () => {
   useEffect(() => {
     const fetchCourseUnits = async () => {
       try {
-        const kresponse = await httpClient.get("http://127.0.0.1:5000/@me");
+        const kresponse = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/@me");
         setUser(kresponse.data);
-        const response = await httpClient.get(`http://127.0.0.1:5000/get_all_course_units`);
+        const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/get_all_course_units`);
         setCourseUnits(response.data);
       } catch (error) {
         console.error('Error fetching course units:', error);
@@ -40,7 +40,7 @@ const StudentCoursePage = () => {
   const handleCourseUnitChange = async (courseUnitId) => {
     setSelectedCourseUnit(courseUnitId);
     try {
-      const response = await httpClient.get(`http://127.0.0.1:5000/course/${courseUnitId}/topics`);
+      const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/course/${courseUnitId}/topics`);
       setTopics(response.data.topics);
       setSelectedTopic(null);
     } catch (error) {
@@ -51,7 +51,7 @@ const StudentCoursePage = () => {
   const handleTopicClick = async (topic) => {
     setSelectedTopic(topic);
     try {
-      const response = await httpClient.get(`http://127.0.0.1:5000/view_resources/${topic.id}`);
+      const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/view_resources/${topic.id}`);
       setSelectedTopicResources(response.data.resources);
     } catch (error) {
       console.error('Error fetching resources:', error);
@@ -60,7 +60,7 @@ const StudentCoursePage = () => {
 
   const handleEnroll = async (courseId) => {
     try {
-      await httpClient.post(`http://127.0.0.1:5000/enroll`, {
+      await httpClient.post(`https://grade-x-018e7b77a65e.herokuapp.com/enroll`, {
         student_id: user.id,
         course_id: courseId,
       });
@@ -109,7 +109,7 @@ const StudentCoursePage = () => {
                           sx={{ marginLeft: '8px', width: "100px", alignItems: "space-between", background: "#02BA70"}}
                           onClick={() =>
                             window.open(
-                              `http://127.0.0.1:5000/download_resource/${resource.id}`,
+                              `https://grade-x-018e7b77a65e.herokuapp.com/download_resource/${resource.id}`,
                               '_blank'
                             )
                           }

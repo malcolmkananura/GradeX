@@ -28,7 +28,7 @@ const PageContent = () => {
   return (
     <div>
       <Routes>
-        <Route path="/student-layout/*" element={<StuAppLayout />} />
+        <Route path="https://grade-x-018e7b77a65e.herokuapp.com/student-layout/*" element={<StuAppLayout />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/analysis" element={<Analysis />} />

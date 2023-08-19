@@ -28,9 +28,9 @@ const ManageCourse = () => {
   useEffect(() => {
     const fetchCourseUnits = async () => {
       try {
-        const kresponse = await httpClient.get("http://127.0.0.1:5000/@me");
+        const kresponse = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/@me");
         setUser(kresponse.data);
-        const response = await httpClient.get(`http://127.0.0.1:5000/lecturer/${user.id}/courses`);
+        const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/lecturer/${user.id}/courses`);
         setCourseUnits(response.data.courses);
       } catch (error) {
         console.error('Error fetching course units:', error);
@@ -43,7 +43,7 @@ const ManageCourse = () => {
   const handleCourseUnitChange = async (courseUnitId) => {
     setSelectedCourseUnit(courseUnitId);
     try {
-      const response = await httpClient.get(`http://127.0.0.1:5000/course/${courseUnitId}/topics`);
+      const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/course/${courseUnitId}/topics`);
       setTopics(response.data.topics);
       setSelectedTopic(null);
     } catch (error) {
@@ -54,7 +54,7 @@ const ManageCourse = () => {
   const handleTopicClick = async (topic) => {
     setSelectedTopic(topic);
     try {
-      const response = await httpClient.get(`http://127.0.0.1:5000/view_resources/${topic.id}`);
+      const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/view_resources/${topic.id}`);
       setSelectedTopicResources(response.data.resources);
     } catch (error) {
       console.error('Error fetching resources:', error);
@@ -66,7 +66,7 @@ const ManageCourse = () => {
     if (!newTopic) return;
 
     try {
-      await httpClient.post('http://127.0.0.1:5000/create_topic', {
+      await httpClient.post('https://grade-x-018e7b77a65e.herokuapp.com/create_topic', {
         course_unit_id: selectedCourseUnit,
         topic_name: newTopic,
       });
@@ -80,7 +80,7 @@ const ManageCourse = () => {
 
   const handleDeleteTopic = async (topicId) => {
     try {
-      await httpClient.delete(`http://127.0.0.1:5000/delete_topic/${topicId}`);
+      await httpClient.delete(`https://grade-x-018e7b77a65e.herokuapp.com/delete_topic/${topicId}`);
       handleCourseUnitChange(selectedCourseUnit);
     } catch (error) {
       console.error('Error deleting topic:', error);
@@ -89,12 +89,12 @@ const ManageCourse = () => {
 
   const handleDeleteCourseUnit = async (courseUnitId) => {
     try {
-      await httpClient.delete(`http://127.0.0.1:5000/delete_course_unit/${courseUnitId}`);
+      await httpClient.delete(`https://grade-x-018e7b77a65e.herokuapp.com/delete_course_unit/${courseUnitId}`);
       setSelectedCourseUnit('');
       setTopics([]);
       setSelectedTopic(null);
       setSelectedTopicResources([]);
-      const response = await httpClient.get(`http://127.0.0.1:5000/lecturer/${user.id}/courses`);
+      const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/lecturer/${user.id}/courses`);
       setCourseUnits(response.data.courses);
     } catch (error) {
       console.error('Error deleting course unit:', error);
@@ -109,7 +109,7 @@ const ManageCourse = () => {
       const formData = new FormData();
       formData.append('file', newResource);
 
-      await httpClient.post(`http://127.0.0.1:5000/add_resource/${selectedTopic.id}`, formData);
+      await httpClient.post(`https://grade-x-018e7b77a65e.herokuapp.com/add_resource/${selectedTopic.id}`, formData);
 
       setNewResource(null);
       handleTopicClick(selectedTopic);
@@ -122,7 +122,7 @@ const ManageCourse = () => {
 
   const handleDeleteResource = async (resourceId) => {
     try {
-      await httpClient.delete(`http://127.0.0.1:5000/delete_resource/${resourceId}`);
+      await httpClient.delete(`https://grade-x-018e7b77a65e.herokuapp.com/delete_resource/${resourceId}`);
       handleTopicClick(selectedTopic);
     } catch (error) {
       console.error('Error deleting resource:', error);

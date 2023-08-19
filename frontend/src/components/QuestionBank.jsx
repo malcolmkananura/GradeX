@@ -23,11 +23,11 @@ const QuestionBank = () => {
   useEffect(() => {
     const fetchEnrolledCourses = async () => {
       try {
-        const kresponse = await httpClient.get("http://127.0.0.1:5000/@me");
+        const kresponse = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/@me");
         setUser(kresponse.data);
         const response = await httpClient.get(
           
-          `http://127.0.0.1:5000/enrolled_courses/${user.id}`
+          `https://grade-x-018e7b77a65e.herokuapp.com/enrolled_courses/${user.id}`
         );
         setEnrolledCourses(response.data.enrolled_courses);
       } catch (error) {
@@ -42,7 +42,7 @@ const QuestionBank = () => {
     try {
       setShowCard(false); // Hide the card when Generate Question is clicked
       const response = await httpClient.post(
-        "http://127.0.0.1:5000/generate_question",
+        "https://grade-x-018e7b77a65e.herokuapp.com/generate_question",
         {
           courseUnit,
           topic,
@@ -61,7 +61,7 @@ const QuestionBank = () => {
   const handleSubmitAnswer = async () => {
     try {
       const response = await httpClient.post(
-        "http://127.0.0.1:5000/grade_answer",
+        "https://grade-x-018e7b77a65e.herokuapp.com/grade_answer",
         {
           question: question,
           answer: answer,

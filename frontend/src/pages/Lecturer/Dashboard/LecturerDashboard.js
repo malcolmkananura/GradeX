@@ -14,15 +14,15 @@ function LecturerDashboard() {
   useEffect(() => {
     (async () => {
       try {
-        const userResponse = await httpClient.get("http://127.0.0.1:5000/@me");
+        const userResponse = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/@me");
         setUser(userResponse.data);
 
-        const performanceResponse = await httpClient.get(`http://127.0.0.1:5000/get_topics_performance/1`);
+        const performanceResponse = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/get_topics_performance/1`);
         console.log("Performance Response:", performanceResponse.data);
         setPerformanceData(performanceResponse.data);
 
         // Fetch student names and ids for suggestions
-        const studentsResponse = await httpClient.get("http://127.0.0.1:5000/get_student_names_ids");
+        const studentsResponse = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/get_student_names_ids");
         console.log("Student Suggestions:", studentsResponse.data);
         setStudentSuggestions(studentsResponse.data);
 
@@ -36,7 +36,7 @@ function LecturerDashboard() {
     if (selectedStudentId) {
       (async () => {
         try {
-          const studentPerformanceResponse = await httpClient.get(`http://127.0.0.1:5000/get_performance/${selectedStudentId}`);
+          const studentPerformanceResponse = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/get_performance/${selectedStudentId}`);
           console.log("Student Performance Response:", studentPerformanceResponse.data);
           setStudentPerformanceData(studentPerformanceResponse.data);
         } catch (error) {

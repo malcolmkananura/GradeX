@@ -27,10 +27,10 @@ const Quiz = () => {
   useEffect(() => {
     const fetchEnrolledCourses = async () => {
       try {
-        const kresponse = await httpClient.get("http://127.0.0.1:5000/@me");
+        const kresponse = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/@me");
         setUser(kresponse.data);
         const response = await httpClient.get(
-          `http://127.0.0.1:5000/enrolled_courses/${user.id}`
+          `https://grade-x-018e7b77a65e.herokuapp.com/enrolled_courses/${user.id}`
         );
         setEnrolledCourses(response.data.enrolled_courses);
       } catch (error) {
@@ -44,7 +44,7 @@ const Quiz = () => {
   const handleSubmitForm = async () => {
     try {
       const response = await httpClient.post(
-        "http://127.0.0.1:5000/generate_quiz_question",
+        "https://grade-x-018e7b77a65e.herokuapp.com/generate_quiz_question",
         {
           courseUnit,
           topic,
@@ -66,7 +66,7 @@ const Quiz = () => {
   const handleSubmitAnswer = async () => {
     try {
       const response = await httpClient.post(
-        "http://127.0.0.1:5000/grade_quiz_answer",
+        "https://grade-x-018e7b77a65e.herokuapp.com/grade_quiz_answer",
         {
           question: question,
           topic: topic,

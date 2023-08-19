@@ -10,7 +10,7 @@ function EnrollmentPage() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await httpClient.get("http://127.0.0.1:5000/@me");
+        const response = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/@me");
         setUser(response.data);
       } catch (error) {
         console.log("Not authenticated");
@@ -27,9 +27,9 @@ function EnrollmentPage() {
 
   const fetchAvailableCourses = async () => {
     try {
-      const kresponse = await httpClient.get("http://127.0.0.1:5000/@me");
+      const kresponse = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/@me");
       setUser(kresponse.data);
-      const response = await httpClient.get(`http://127.0.0.1:5000/available_courses/${kresponse.data.id}`);
+      const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/available_courses/${kresponse.data.id}`);
       setAvailableCourses(response.data);
     } catch (error) {
       console.error('Error fetching available courses:', error);
@@ -39,7 +39,7 @@ function EnrollmentPage() {
 
   const enrollInCourse = async () => {
     try {
-      const response = await axios.post(`http://127.0.0.1:5000/enroll`, {
+      const response = await axios.post(`https://grade-x-018e7b77a65e.herokuapp.com/enroll`, {
         student_id: studentId,
         course_id: selectedCourse
       });
