@@ -140,7 +140,7 @@ def login_user():
 @cross_origin()
 def logout_user():
     session.pop("user_id")
-    return "200"
+    return jsonify({"status": "logout sucssessful"}), 200
 
 @app.route("/students", methods=["GET"])
 @cross_origin()
