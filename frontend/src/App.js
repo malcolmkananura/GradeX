@@ -22,22 +22,23 @@ function App() {
           <main className="content">
             {/* <BrowserRouter> */}
             {/* <StuAppLayout/> */}
-            <Routes>
+              <Routes>
                 <Route path="/" element={<LoginForm />} />
                 <Route path="/login" element={<LoginForm />} />
                 <Route path="/signup" element={<SignUpForm />} />
-
-                <Route path="/student-layout/*" element={<StuAppLayout />} />
-                <Route path="/student-layout/student-sidebar" element={<StuSidebar />} />
-                <Route path="/student-layout/page-content" element={<PageContent />} />
-                <Route path="/student-layout/page-content/routes" element={<PageRoutes />} />
-
-                <Route path="/lecturer-layout/*" element={<LecAppLayout />} />
-                <Route path="/lecturer-layout/lecturer-sidebar" element={<LecSidebar />} />
-                <Route path="/lecturer-layout/lec-page-content" element={<PageContent />} />
-                <Route path="/lecturer-layout/lec-page-content/routes" element={<PageRoutes />} />
+                <Route exact path="/student-layout/*" element={<StuAppLayout />}>
+                <Route path="student-sidebar" element={<StuSidebar />} />
+                <Route path="page-content" element={<PageContent />}>
+                <Route path="routes" element ={<PageRoutes/>}/>
+                </Route>
+                  </Route> 
+                <Route exact path="/lecturer-layout/*" element={<LecAppLayout />} >
+                <Route path="lecturer-sidebar" element={<LecSidebar />} />
+                <Route path="lec-page-content" element={<PageContent />}>
+                <Route path="routes" element ={<PageRoutes/>}/>
+                </Route>
+                </Route>
               </Routes>
-
               {/* </BrowserRouter> */}
           </main>
         </div>
