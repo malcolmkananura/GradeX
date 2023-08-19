@@ -29,9 +29,9 @@ const LoginForm = () => {
         const user = response.data;
         
         if (user.user_type === 'student') {
-          navigate('https://grade-x-018e7b77a65e.herokuapp.com/student-layout/student-dashboard'); // Navigate to student layout
+          navigate('/student-layout/student-dashboard'); // Navigate to student layout
         } else if (user.user_type === 'lecturer') {
-          navigate('https://grade-x-018e7b77a65e.herokuapp.com/lecturer-layout/lecturer-dashboard'); // Navigate to lecturer layout
+          navigate('/lecturer-layout/lecturer-dashboard'); // Navigate to lecturer layout
         } else {
           setError('Invalid user type.');
         }
