@@ -28,7 +28,7 @@ app.config.from_object(ApplicationConfig)
 
 
 bcrypt = Bcrypt(app)
-CORS(app, supports_credentials=True)
+CORS(app, supports_credentials=True, resources={r"/*": {"origins": "https://grade-x-018e7b77a65e.herokuapp.com"}})
 server_session = Session(app)
 db.init_app(app)
 
@@ -42,6 +42,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in {'jpg', 'jpeg', 'png', 'gif', 'mp4'}
 
 @app.route('/')
+@cross_origin()
 def serve():
     return send_from_directory(app.static_folder, 'index.html')
 
@@ -51,11 +52,13 @@ if __name__ == "__main__":
 
 
 @app.errorhandler(404)
+@cross_origin()
 def not_found(e):
     return app.send_static_file('index.html')
 
 
 @app.route("/@me")
+@cross_origin()
 def get_current_user():
     user_id = session.get("user_id")
 
@@ -71,6 +74,7 @@ def get_current_user():
     }) 
 
 @app.route("/register", methods=["POST"])
+@cross_origin()
 def register_user():
     try:
         name = request.json["name"]
@@ -106,6 +110,7 @@ def register_user():
 
 
 @app.route("/login_user", methods=["POST"])
+@cross_origin()
 def login_user():
     try:
         email = request.json["email"]
@@ -135,11 +140,13 @@ def login_user():
 
 
 @app.route("/logout", methods=["POST"])
+@cross_origin()
 def logout_user():
     session.pop("user_id")
     return "200"
 
 @app.route("/students", methods=["GET"])
+@cross_origin()
 def get_students():
     students = Student.query.all()
     student_list = []
