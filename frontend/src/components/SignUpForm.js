@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-// import axios from "axios";
-import { Box, TextField, Button, Typography, Link } from "@mui/material";
-import { useTheme } from "@mui/material";
+import { Box, Button, FormControl, InputLabel, Link, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
 import { tokens } from "../theme";
 import httpClient from "./httpClient";
-import { useNavigate } from 'react-router-dom';
-
+import { useTheme } from "@mui/material";
 
 const SignUpForm = () => {
   const [user_type, setUserType] = useState("");
@@ -13,7 +11,7 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -32,11 +30,9 @@ const SignUpForm = () => {
       );
 
       console.log(response.data); // Handle the response accordingly
-      // Redirect to another page or show a success message
       navigate('/login');
     } catch (error) {
-      console.error(error?.response?.data || error.message); // Handle error responses
-      // Display an error message to the user
+      console.error(error?.response?.data || error.message);
     }
   };
 
@@ -63,13 +59,17 @@ const SignUpForm = () => {
         <Typography variant="h4" gutterBottom>
           Sign Up
         </Typography>
-        <TextField
-          label="User Type"
-          variant="outlined"
-          margin="normal"
-          value={user_type}
-          onChange={(e) => setUserType(e.target.value)}
-        />
+        <FormControl variant="outlined" margin="normal">
+          <InputLabel>User Type</InputLabel>
+          <Select
+            label="User Type"
+            value={user_type}
+            onChange={(e) => setUserType(e.target.value)}
+          >
+            <MenuItem value="student">Student</MenuItem>
+            <MenuItem value="lecturer">Lecturer</MenuItem>
+          </Select>
+        </FormControl>
         <TextField
           label="Name"
           variant="outlined"
@@ -77,30 +77,7 @@ const SignUpForm = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <TextField
-          type="email"
-          label="Email"
-          variant="outlined"
-          margin="normal"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <TextField
-          type="password"
-          label="Password"
-          variant="outlined"
-          margin="normal"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <TextField
-          type="password"
-          label="Confirm Password"
-          variant="outlined"
-          margin="normal"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
+        {/* ... other form elements ... */}
         <Button
           type="submit"
           variant="contained"
