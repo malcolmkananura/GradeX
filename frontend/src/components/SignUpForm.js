@@ -77,7 +77,30 @@ const SignUpForm = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        {/* ... other form elements ... */}
+        <TextField
+          type="email"
+          label="Email"
+          variant="outlined"
+          margin="normal"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <TextField
+          type="password"
+          label="Password"
+          variant="outlined"
+          margin="normal"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <TextField
+          type="password"
+          label="Confirm Password"
+          variant="outlined"
+          margin="normal"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
         <Button
           type="submit"
           variant="contained"
