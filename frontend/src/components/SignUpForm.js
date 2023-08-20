@@ -59,7 +59,7 @@ const SignUpForm = () => {
         <Typography variant="h4" gutterBottom>
           Sign Up
         </Typography>
-        <FormControl variant="outlined" margin="normal">
+        <FormControl variant="outlined" margin="normal" sx={{ minWidth: 200 }}>
           <InputLabel>User Type</InputLabel>
           <Select
             label="User Type"
