@@ -75,7 +75,7 @@ const StuSidebar = ({ onQuestionBankClick }) => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/@me");
+        const response = await httpClient.get("https://gradex-6c6911643a2a.herokuapp.com/@me");
         setUser(response.data);
       } catch (error) {
         console.log("Not authenticated");
