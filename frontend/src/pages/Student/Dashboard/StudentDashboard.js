@@ -21,11 +21,11 @@ function StudentDashboard() {
   useEffect(() => {
     (async () => {
       try {
-        const userResponse = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/@me");
+        const userResponse = await httpClient.get("https://gradex-6c6911643a2a.herokuapp.com/@me");
         setUser(userResponse.data);
 
         if (userResponse.data.id) {
-          const performanceResponse = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/get_performance/${userResponse.data.id}`);
+          const performanceResponse = await httpClient.get(`https://gradex-6c6911643a2a.herokuapp.com/get_performance/${userResponse.data.id}`);
           console.log("Performance Response:", performanceResponse.data);
           setPerformanceData(performanceResponse.data);
 
@@ -43,9 +43,9 @@ function StudentDashboard() {
 
       const fetchEnrolledCourses = async () => {
     try {
-      const userResponse = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/@me");
+      const userResponse = await httpClient.get("https://gradex-6c6911643a2a.herokuapp.com/@me");
         setUser(userResponse.data);
-      const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/enrolled_courses/${userResponse.data.id}`);
+      const response = await httpClient.get(`https://gradex-6c6911643a2a.herokuapp.com/enrolled_courses/${userResponse.data.id}`);
       setEnrolledCourses(response.data);
     } catch (error) {
       console.error('Error fetching enrolled courses:', error);
