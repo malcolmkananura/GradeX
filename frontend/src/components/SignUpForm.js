@@ -20,7 +20,7 @@ const SignUpForm = () => {
     e.preventDefault();
     try {
       const response = await httpClient.post(
-        "https://grade-x-018e7b77a65e.herokuapp.com/register",
+        "https://gradex-6c6911643a2a.herokuapp.com/register",
         {
           user_type,
           name,

@@ -25,9 +25,9 @@ const StudentCoursePage = () => {
   useEffect(() => {
     const fetchCourseUnits = async () => {
       try {
-        const kresponse = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/@me");
+        const kresponse = await httpClient.get("https://gradex-6c6911643a2a.herokuapp.com/@me");
         setUser(kresponse.data);
-        const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/get_all_course_units`);
+        const response = await httpClient.get(`https://gradex-6c6911643a2a.herokuapp.com/get_all_course_units`);
         setCourseUnits(response.data);
       } catch (error) {
         console.error('Error fetching course units:', error);
@@ -40,7 +40,7 @@ const StudentCoursePage = () => {
   const handleCourseUnitChange = async (courseUnitId) => {
     setSelectedCourseUnit(courseUnitId);
     try {
-      const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/course/${courseUnitId}/topics`);
+      const response = await httpClient.get(`https://gradex-6c6911643a2a.herokuapp.com/course/${courseUnitId}/topics`);
       setTopics(response.data.topics);
       setSelectedTopic(null);
     } catch (error) {
@@ -51,7 +51,7 @@ const StudentCoursePage = () => {
   const handleTopicClick = async (topic) => {
     setSelectedTopic(topic);
     try {
-      const response = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/view_resources/${topic.id}`);
+      const response = await httpClient.get(`https://gradex-6c6911643a2a.herokuapp.com/view_resources/${topic.id}`);
       setSelectedTopicResources(response.data.resources);
     } catch (error) {
       console.error('Error fetching resources:', error);
@@ -60,7 +60,7 @@ const StudentCoursePage = () => {
 
   const handleEnroll = async (courseId) => {
     try {
-      await httpClient.post(`https://grade-x-018e7b77a65e.herokuapp.com/enroll`, {
+      await httpClient.post(`https://gradex-6c6911643a2a.herokuapp.com/enroll`, {
         student_id: user.id,
         course_id: courseId,
       });
@@ -109,7 +109,7 @@ const StudentCoursePage = () => {
                           sx={{ marginLeft: '8px', width: "100px", alignItems: "space-between", background: "#02BA70"}}
                           onClick={() =>
                             window.open(
-                              `https://grade-x-018e7b77a65e.herokuapp.com/download_resource/${resource.id}`,
+                              `https://gradex-6c6911643a2a.herokuapp.com/download_resource/${resource.id}`,
                               '_blank'
                             )
                           }

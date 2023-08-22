@@ -12,7 +12,7 @@ function Forum() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/get_threads_ordered_by_most_posts");
+        const response = await httpClient.get("https://gradex-6c6911643a2a.herokuapp.com/get_threads_ordered_by_most_posts");
         setTThreads(response.data.threads);
         console.log(response.data);
       } catch (error) {
@@ -26,7 +26,7 @@ function Forum() {
     (async () => {
       try {
         
-        const response = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/get_categories");
+        const response = await httpClient.get("https://gradex-6c6911643a2a.herokuapp.com/get_categories");
         setCategories(response.data);
       } catch (error) {
         console.log("Not authenticated");

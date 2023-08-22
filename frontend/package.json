@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "https://grade-x-018e7b77a65e.herokuapp.com/",
+  "proxy": "https://gradex-6c6911643a2a.herokuapp.com/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
