@@ -28,7 +28,7 @@ app.config.from_object(ApplicationConfig)
 
 
 bcrypt = Bcrypt(app)
-CORS(app, supports_credentials=True, resources={r"/*": {"origins": "https://grade-x-018e7b77a65e.herokuapp.com"}})
+CORS(app, supports_credentials=True, resources={r"/*": {"origins": "https://gradex-6c6911643a2a.herokuapp.com/"}})
 server_session = Session(app)
 db.init_app(app)
 
