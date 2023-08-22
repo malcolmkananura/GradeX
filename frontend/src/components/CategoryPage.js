@@ -16,7 +16,7 @@ function CategoryPage() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await httpClient.get("https://grade-x-018e7b77a65e.herokuapp.com/get_threads_ordered_by_most_posts");
+        const response = await httpClient.get("https://gradex-6c6911643a2a.herokuapp.com/get_threads_ordered_by_most_posts");
         setTThreads(response.data.threads);
         console.log(response.data);
       } catch (error) {
@@ -28,7 +28,7 @@ function CategoryPage() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const categoryResponse = await httpClient.get(`https://grade-x-018e7b77a65e.herokuapp.com/get_category_and_threads/${categoryId}`);
+        const categoryResponse = await httpClient.get(`https://gradex-6c6911643a2a.herokuapp.com/get_category_and_threads/${categoryId}`);
 
         if (!categoryResponse.data) {
           throw new Error('Error fetching category data');
