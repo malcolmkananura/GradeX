@@ -43,7 +43,7 @@ const Topbar = () => {
   // Function to handle the logout action
   const handleLogout = async () => {
     // clearing the user's authentication token or session
-    const response = await httpClient.post("https://grade-x-018e7b77a65e.herokuapp.com/logout");
+    const response = await httpClient.post("https://gradex-6c6911643a2a.herokuapp.com//logout");
     console.log(response.data);
     // and redirecting them to the login page.
     navigate('/login');
