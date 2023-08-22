@@ -10,10 +10,11 @@ class ApplicationConfig:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = True
 
-    if "DATABASE_URL" in os.environ:
-        SQLALCHEMY_DATABASE_URI = os.environ["DATABASE_URL"]  # Use Heroku-provided database URL
-    else:
-        SQLALCHEMY_DATABASE_URI = r"sqlite:///./db.sqlite"  # Use SQLite3 for development
+    # if "DATABASE_URL" in os.environ:
+    #     SQLALCHEMY_DATABASE_URI = os.environ["DATABASE_URL"]  # Use Heroku-provided database URL
+    # else:
+    
+    SQLALCHEMY_DATABASE_URI = r"sqlite:///./db.sqlite"  # Use SQLite3 for development
     
     SESSION_TYPE = "filesystem"
     # SESSION_PERMANENT = False
